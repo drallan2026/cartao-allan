@@ -8,13 +8,14 @@ Cartão de visita digital, autocontido, para publicação no GitHub Pages.
 ## Conteúdo
 - `index.html` — o cartão (CSS/SVG inline; sem dependências além da fonte Inter via Google Fonts).
 - `404.html` — página de erro.
-- `assets/` — retrato (PNG/WebP), favicon e imagem de compartilhamento (OG).
+- `assets/` — retrato (PNG/WebP), favicon, imagem de compartilhamento (OG) e `contato.vcf` (vCard do botão "Salvar contato").
 - `.nojekyll` — evita o processamento Jekyll no GitHub Pages.
 
 ## Ativos (gerados por `SKILLS/SCRIPTS/cartao_build.py`)
 - `retrato.png` / `retrato.webp` — recorte do retrato com fundo transparente.
 - `og-cartao.png` — imagem 1200×630 para compartilhamento.
 - `favicon.png` — símbolo "C+" (gradiente da marca).
+- `contato.vcf` — vCard 3.0 (nome, cargo, telefone, e-mail, site e redes).
 
 Regenerar:
 ```

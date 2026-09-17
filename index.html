@@ -19,12 +19,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg1:#041817; --bg2:#020d0d; --bg3:#03261f;
-  --ink:#eff9f6; --muted:#a7bbb6; --teal:#19d3c5; --teal2:#70f0c5;
-  --line:rgba(25,211,197,.28); --card:rgba(255,255,255,.035);
+  --bg1:#041817; --bg2:#020d0d; --ink:#eff9f6; --muted:#a7bbb6;
+  --teal:#19d3c5; --teal2:#70f0c5; --line:rgba(25,211,197,.28);
+  --glass:rgba(255,255,255,.045); --glass2:rgba(255,255,255,.07);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#010b0a;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+html,body{background:#010b0a;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 body{display:flex;justify-content:center;min-height:100dvh}
 .card{position:relative;width:100%;max-width:440px;min-height:100dvh;overflow:hidden;
   background:radial-gradient(120% 60% at 50% 8%, #0a3b38 0%, var(--bg1) 42%, var(--bg2) 100%);
@@ -34,92 +34,132 @@ body{display:flex;justify-content:center;min-height:100dvh}
 .dots{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
   background-image:radial-gradient(rgba(25,211,197,.55) 1px, transparent 1.4px),
                    radial-gradient(rgba(25,211,197,.35) 1px, transparent 1.4px);
-  background-size:22px 22px, 22px 22px;
-  background-position:0 0, 11px 11px;
+  background-size:22px 22px, 22px 22px;background-position:0 0, 11px 11px;
   -webkit-mask-image:linear-gradient(120deg,#000 0%,transparent 38%,transparent 62%,#000 100%);
           mask-image:linear-gradient(120deg,#000 0%,transparent 38%,transparent 62%,#000 100%)}
 .waves{position:absolute;inset:0;z-index:0;pointer-events:none}
 .waves.top{height:240px}
 .waves.bottom{bottom:0;top:auto;height:300px}
 
+/* ---------- entrada ---------- */
+.rv{opacity:0;transform:translateY(14px);animation:rv .62s cubic-bezier(.22,.61,.36,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rv{to{opacity:1;transform:none}}
+
+/* ---------- sociais ---------- */
 .social{position:relative;z-index:3;display:flex;justify-content:center;gap:26px;padding:6px 0 2px}
-.soc{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);transition:.2s;background:transparent}
+.soc{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);background:transparent;transition:transform .18s,background .2s,color .2s,border-color .2s}
 .soc svg{width:20px;height:20px;fill:currentColor}
-.soc:hover,.soc:focus-visible{color:#02110f;background:var(--teal);border-color:var(--teal);outline:none}
-.soc.destaque{background:var(--teal);border-color:var(--teal);color:#02110f}
+.soc:hover,.soc:focus-visible{color:#02110f;background:var(--teal);border-color:var(--teal);outline:none;transform:translateY(-2px)}
+.soc:active{transform:scale(.94)}
+.soc.destaque{background:var(--teal);border-color:var(--teal);color:#02110f;box-shadow:0 8px 22px rgba(25,211,197,.4)}
 
-.hero{position:relative;z-index:2;height:440px;margin-top:4px}
-.ring{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:min(82%,312px);aspect-ratio:1;border-radius:50%;
+/* ---------- hero ---------- */
+.hero{position:relative;z-index:2;height:412px;margin-top:4px}
+.ring{position:absolute;left:50%;top:10px;transform:translateX(-50%);width:min(82%,308px);aspect-ratio:1;border-radius:50%;
   border:1.5px solid rgba(25,211,197,.55);
-  box-shadow:0 0 70px rgba(25,211,197,.16) inset, 0 0 44px rgba(25,211,197,.14), 0 0 0 1px rgba(0,0,0,.25);
-  background:radial-gradient(60% 55% at 50% 45%, rgba(4,30,28,.72), rgba(2,13,13,.35))}
+  box-shadow:0 0 70px rgba(25,211,197,.16) inset, 0 0 44px rgba(25,211,197,.14);
+  background:radial-gradient(60% 55% at 52% 42%, rgba(6,42,38,.72), rgba(2,13,13,.3))}
 .ring::after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(25,211,197,.12)}
-
-.brand{position:absolute;left:24px;top:88px;z-index:4;max-width:152px}
+.brand{position:absolute;left:24px;top:84px;z-index:4;max-width:152px}
 .brand .cmais{width:70px;height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(25,211,197,.45))}
-.brand h1{font-size:35px;line-height:.94;font-weight:900;letter-spacing:-1px;margin-top:6px}
+.brand h1{font-size:35px;line-height:.94;font-weight:900;letter-spacing:-1px;margin-top:6px;text-wrap:balance;text-shadow:0 4px 18px rgba(0,0,0,.5)}
 .brand h1 .cap{color:var(--teal);display:block}
 .brand p{margin-top:8px;font-size:11.5px;line-height:1.32;color:var(--teal2);max-width:146px}
 .brand p::before{content:"";display:inline-block;width:22px;height:2px;background:var(--teal);vertical-align:middle;margin-right:8px}
-
 .retrato{position:absolute;right:-12px;bottom:0;width:min(58%,230px);height:auto;z-index:3;
-  filter:drop-shadow(0 20px 40px rgba(0,0,0,.55))}
-.nome{position:absolute;right:14px;bottom:30px;z-index:5;text-align:center}
-.nome .n{font-size:26px;font-weight:800;letter-spacing:-.6px;color:var(--teal);text-shadow:0 3px 16px rgba(0,0,0,.85)}
-.nome .c{font-size:17px;font-weight:800;letter-spacing:2px;color:#fff;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.85)}
+  filter:drop-shadow(0 22px 44px rgba(0,0,0,.6));
+  -webkit-mask-image:linear-gradient(#000 82%,transparent 100%);
+          mask-image:linear-gradient(#000 82%,transparent 100%)}
+.nome{position:absolute;right:12px;bottom:26px;z-index:5;text-align:center;padding:8px 10px}
+.nome::before{content:"";position:absolute;inset:-14% -10%;border-radius:46%;background:radial-gradient(closest-side,rgba(2,13,13,.72),transparent 82%);z-index:-1}
+.nome .n{font-size:26px;font-weight:800;letter-spacing:-.6px;color:var(--teal);text-shadow:0 3px 16px rgba(0,0,0,.9);text-wrap:balance}
+.nome .c{font-size:17px;font-weight:800;letter-spacing:2px;color:#fff;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.9)}
 
-.tabs{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
-.tab{background:none;border:0;color:var(--muted);font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.10em;
-  text-transform:uppercase;cursor:pointer;padding:10px 2px 12px;display:flex;flex-direction:column;align-items:center;gap:9px;transition:.2s;border-bottom:2px solid transparent}
-.tab .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);transition:.2s}
+/* ---------- abas ---------- */
+.tabs{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px;
+  border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;color:var(--muted);font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;cursor:pointer;padding:10px 2px 13px;display:flex;flex-direction:column;align-items:center;gap:9px;transition:color .2s,transform .18s}
+.tab .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);transition:.22s}
 .tab .ic svg{width:20px;height:20px;fill:currentColor}
 .tab:hover{color:var(--ink)}
-.tab[aria-selected="true"]{color:var(--teal2);border-bottom-color:var(--teal)}
+.tab:active{transform:scale(.95)}
+.tab[aria-selected="true"]{color:var(--teal2)}
 .tab[aria-selected="true"] .ic{background:var(--teal);border-color:var(--teal);color:#02110f;box-shadow:0 0 22px rgba(25,211,197,.45)}
+.ind{position:absolute;bottom:-1px;left:0;height:2px;width:calc(100%/3);background:var(--teal);border-radius:2px;
+  box-shadow:0 0 12px rgba(25,211,197,.7);transition:transform .3s cubic-bezier(.4,0,.2,1)}
 
-.painel{position:relative;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:12px}
+/* ---------- paineis ---------- */
+.painel{position:relative;z-index:3;background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+  margin-top:12px;backdrop-filter:blur(6px);animation:fade .34s ease both}
 .painel[hidden]{display:none}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .painel h2{font-size:15px;font-weight:800;letter-spacing:.3px;margin-bottom:8px}
 .painel p{font-size:13.5px;line-height:1.6;color:var(--muted)}
-.painel a{color:var(--teal2);text-decoration:none;font-weight:700;border-bottom:1px solid rgba(112,240,197,.4)}
+.painel a{color:var(--teal2);text-decoration:none;font-weight:700;border-bottom:1px solid rgba(112,240,197,.4);transition:border-color .2s}
+.painel a:hover{border-color:var(--teal2)}
 .lista{list-style:none;margin-top:4px}
 .lista li{font-size:13.5px;line-height:1.5;color:var(--muted);padding-left:18px;position:relative;margin-bottom:7px}
 .lista li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
 
+/* ---------- contatos ---------- */
 .contatos{position:relative;z-index:3;margin-top:16px;display:flex;flex-direction:column;gap:10px}
-.linha{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);text-decoration:none;transition:.2s}
-.linha:hover,.linha:focus-visible{border-color:var(--teal);background:rgba(25,211,197,.10);outline:none}
+.linha{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);
+  background:var(--glass);color:var(--ink);text-decoration:none;transition:.2s}
+.linha:hover,.linha:focus-visible{border-color:var(--teal);background:rgba(25,211,197,.10);outline:none;transform:translateY(-1px)}
+.linha:active{transform:scale(.99)}
 .linha .ic{width:46px;height:46px;flex:0 0 46px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2)}
 .linha .ic svg{width:22px;height:22px;fill:currentColor}
-.linha .tx{display:flex;flex-direction:column;min-width:0}
+.linha .tx{display:flex;flex-direction:column;min-width:0;flex:1}
 .linha .tx small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .linha .tx b{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.linha .go{color:var(--teal);opacity:.65;flex:0 0 auto;transition:transform .2s,opacity .2s}
+.linha .go svg{width:16px;height:16px;fill:currentColor}
+.linha:hover .go{opacity:1;transform:translateX(3px)}
 
+/* ---------- ações rápidas ---------- */
+.acoes{position:relative;z-index:3;margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.acao{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;border-radius:14px;cursor:pointer;
+  font-family:inherit;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.acao svg{width:17px;height:17px;fill:currentColor}
+.acao.prim{background:var(--teal);color:#02110f;border:1px solid var(--teal);box-shadow:0 10px 26px rgba(25,211,197,.28)}
+.acao.sec{background:var(--glass);color:var(--teal2);border:1px solid var(--line)}
+.acao:hover,.acao:focus-visible{transform:translateY(-2px);outline:none}
+.acao.sec:hover{border-color:var(--teal);background:rgba(25,211,197,.10)}
+.acao:active{transform:scale(.97)}
+
+/* ---------- destaque ---------- */
 .destaque{display:block;position:relative;z-index:3;margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
   background:linear-gradient(180deg,rgba(25,211,197,.10),rgba(2,13,13,.5));text-decoration:none;color:inherit;transition:.2s}
 .destaque:hover,.destaque:focus-visible{border-color:var(--teal);background:linear-gradient(180deg,rgba(25,211,197,.20),rgba(2,13,13,.55));outline:none}
+.destaque:active{transform:scale(.995)}
 .destaque .cab{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px}
 .destaque .cab span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal2);font-weight:700}
 .destaque .corpo{padding:2px 16px 18px}
-.destaque h3{font-size:23px;line-height:1.05;font-weight:900;letter-spacing:-.4px;text-transform:uppercase}
+.destaque h3{font-size:23px;line-height:1.05;font-weight:900;letter-spacing:-.4px;text-transform:uppercase;text-wrap:balance}
 .destaque h3 em{color:var(--teal);font-style:normal}
 .destaque p{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.5}
-.btn-destaque{display:inline-flex;align-items:center;gap:10px;margin-top:15px;background:var(--teal);color:#02110f;
+.btn-destaque{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;margin-top:15px;background:var(--teal);color:#02110f;
   font-weight:800;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;padding:14px 22px;border-radius:32px;
   box-shadow:0 10px 26px rgba(25,211,197,.32)}
 .btn-destaque svg{width:15px;height:15px;fill:currentColor}
+.destaque:hover .btn-destaque::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:shine .8s ease}
+@keyframes shine{to{left:120%}}
 
-.rodape{position:relative;z-index:3;margin-top:auto;padding:18px 0 14px;text-align:center;border-top:1px solid var(--line);margin-top:18px}
+/* ---------- rodapé ---------- */
+.rodape{position:relative;z-index:3;padding:18px 0 14px;text-align:center;border-top:1px solid var(--line);margin-top:18px}
 .rodape .marca{font-size:15px;font-weight:800;letter-spacing:.4px}
 .rodape .marca em{color:var(--teal);font-style:normal}
 .rodape p{font-size:11.5px;color:var(--muted);margin-top:5px}
-.rodape a{color:var(--teal2);text-decoration:none;font-weight:600}
 .selo{margin-top:10px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);opacity:.85}
 
+/* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--teal);color:#02110f;
-  font-size:12.5px;font-weight:700;padding:10px 18px;border-radius:30px;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+  font-size:12.5px;font-weight:700;padding:10px 18px;border-radius:30px;opacity:0;pointer-events:none;transition:.25s;z-index:20;box-shadow:0 12px 30px rgba(0,0,0,.5)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -151,7 +191,7 @@ body{display:flex;justify-content:center;min-height:100dvh}
     </g>
   </svg>
 
-  <nav class="social" aria-label="Redes sociais">
+  <nav class="social rv" style="--d:.02s" aria-label="Redes sociais">
     <a class="soc" href="https://www.instagram.com/drallancaptador/" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.4.68.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.42-.8.68-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.4-.42.8-.68 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 2.2a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM18.4 6a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
     </a>
@@ -163,7 +203,7 @@ body{display:flex;justify-content:center;min-height:100dvh}
     </a>
   </nav>
 
-  <section class="hero">
+  <section class="hero rv" style="--d:.08s">
     <div class="ring" aria-hidden="true"></div>
     <div class="brand">
       <svg class="cmais" viewBox="0 0 128 110" role="img" aria-label="Método Capta+">
@@ -193,7 +233,7 @@ body{display:flex;justify-content:center;min-height:100dvh}
     </div>
   </section>
 
-  <div class="tabs" role="tablist" aria-label="Seções do cartão">
+  <div class="tabs rv" style="--d:.14s" role="tablist" aria-label="Seções do cartão">
     <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.6-8 5.8V22h16v-2.2c0-3.2-3.6-5.8-8-5.8z"/></svg></span>
       Quem sou eu?
@@ -206,6 +246,7 @@ body{display:flex;justify-content:center;min-height:100dvh}
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 9.6 8.2 3 9.2l4.8 4.4L6.4 20 12 16.7 17.6 20l-1.4-6.4L21 9.2l-6.6-1L12 2z"/></svg></span>
       Mentorias
     </button>
+    <span class="ind" aria-hidden="true"></span>
   </div>
 
   <section class="painel" role="tabpanel" id="p1" aria-labelledby="t1">
@@ -231,18 +272,31 @@ body{display:flex;justify-content:center;min-height:100dvh}
     <p style="margin-top:10px"><a href="https://minutocaptamais.substack.com" target="_blank" rel="noopener">Assinar a newsletter →</a></p>
   </section>
 
-  <section class="contatos" aria-label="Contato">
+  <section class="contatos rv" style="--d:.20s" aria-label="Contato">
     <a class="linha" href="https://wa.me/5544999120638?text=WhatsApp%2024%20Horas!!" target="_blank" rel="noopener">
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M20 3.9A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7c1.7.9 3.7 1.4 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.2-6.2-3.4-8.4l-1.6 1.5zm-7.9 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2c0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 6.9 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.5 9.9-9.9 9.9zm5.4-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.1c-.2.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.8 1.2 3c.2.2 2 3.1 5 4.3 1.8.8 2.5.9 3.4.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg></span>
       <span class="tx"><small>WhatsApp 24 horas</small><b>(44) 99912-0638</b></span>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
     </a>
     <a class="linha" href="mailto:drallanvieira@gmail.com">
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3-.2 7.7 5.6 7.7-5.6H4.3zM20 7.3l-7.4 5.4a1 1 0 0 1-1.2 0L4 7.3v11.2h16V7.3z"/></svg></span>
       <span class="tx"><small>E-mail</small><b>drallanvieira@gmail.com</b></span>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
     </a>
   </section>
 
-  <a class="destaque" href="https://canva.link/apresentacao-exposul-2026-catador" target="_blank" rel="noopener" aria-label="Abrir a apresentação ExpoSul 2026 Catadores">
+  <div class="acoes rv" style="--d:.26s">
+    <a class="acao prim" href="assets/contato.vcf" download="Allan-Marcio.vcf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg>
+      Salvar contato
+    </a>
+    <button class="acao sec" type="button" id="btnCompartilhar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a3 3 0 1 0-2.8-4H15a3 3 0 0 0 .1.8L8.9 8.1a3 3 0 1 0 0 7.8l6.2 3.3a3 3 0 1 0 .8-1.8l-6.2-3.3a3 3 0 0 0 0-.8l6.2-3.3A3 3 0 0 0 18 8z"/></svg>
+      Compartilhar
+    </button>
+  </div>
+
+  <a class="destaque rv" style="--d:.32s" href="https://canva.link/apresentacao-exposul-2026-catador" target="_blank" rel="noopener" aria-label="Abrir a apresentação ExpoSul 2026 Catadores">
     <div class="cab"><span>Destaque</span><span>ExpoSul 2026</span></div>
     <div class="corpo">
       <h3>Quem recicla o <em>Brasil</em> precisa aprender a captar!!</h3>
@@ -254,7 +308,7 @@ body{display:flex;justify-content:center;min-height:100dvh}
     </div>
   </a>
 
-  <footer class="rodape">
+  <footer class="rodape rv" style="--d:.38s">
     <div class="marca">Método <em>Capta+</em></div>
     <p>Captação de Recursos &amp; Gestão de Projetos Sociais</p>
     <div class="selo">Soberania Fiduciária · Dados Auditáveis</div>
@@ -267,19 +321,44 @@ body{display:flex;justify-content:center;min-height:100dvh}
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var paineis={t1:'p1',t2:'p2',t3:'p3'};
-  tabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      tabs.forEach(function(o){
-        var sel=o===t;
-        o.setAttribute('aria-selected',sel?'true':'false');
-        document.getElementById(paineis[o.id]).hidden=!sel;
-      });
+  var ind=document.querySelector('.ind');
+  var toast=document.getElementById('toast');
+  var t;
+  function aviso(msg){toast.textContent=msg;toast.classList.add('on');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('on')},2200);}
+  function seleciona(i,foco){
+    tabs.forEach(function(o,j){
+      var sel=i===j;
+      o.setAttribute('aria-selected',sel?'true':'false');
+      o.tabIndex=sel?0:-1;
+      document.getElementById(paineis[o.id]).hidden=!sel;
+    });
+    ind.style.transform='translateX('+(i*100)+'%)';
+    if(foco){tabs[i].focus();}
+  }
+  tabs.forEach(function(tb,i){
+    tb.addEventListener('click',function(){seleciona(i,false);});
+    tb.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight'){n=(i+1)%tabs.length;}
+      else if(e.key==='ArrowLeft'){n=(i-1+tabs.length)%tabs.length;}
+      else if(e.key==='Home'){n=0;}
+      else if(e.key==='End'){n=tabs.length-1;}
+      if(n!==null){e.preventDefault();seleciona(n,true);}
     });
   });
-  var toast=document.getElementById('toast');
-  function aviso(msg){toast.textContent=msg;toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},2200);}
-  var tel=document.querySelector('a[href^="mailto:"]');
-  if(tel){tel.addEventListener('click',function(){aviso('Abrindo seu e-mail…');});}
+  seleciona(0,false);
+
+  var share=document.getElementById('btnCompartilhar');
+  if(share){
+    share.addEventListener('click',function(){
+      var dados={title:'Allan Márcio · CEO — Método Capta+',text:'Cartão digital — Método Capta+',url:location.href};
+      if(navigator.share){navigator.share(dados).catch(function(){});}
+      else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(function(){aviso('Link copiado!');},function(){aviso('Copie: '+location.href);});}
+      else{aviso('Copie: '+location.href);}
+    });
+  }
+  var mail=document.querySelector('a[href^="mailto:"]');
+  if(mail){mail.addEventListener('click',function(){aviso('Abrindo seu e-mail…');});}
 })();
 </script>
 </body>
