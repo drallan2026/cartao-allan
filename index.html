@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Allan Márcio · CEO — Método Capta+</title>
+<meta name="description" content="Cartão digital de Allan Márcio, CEO. Gestão inteligente para captação pública — fale por WhatsApp, conheça o Método Capta+ e as mentorias.">
+<meta name="theme-color" content="#031413">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Allan Márcio · CEO — Método Capta+">
+<meta property="og:description" content="Gestão inteligente para captação pública. Fale por WhatsApp, conheça o Método Capta+ e as mentorias.">
+<meta property="og:image" content="https://drallan2026.github.io/cartao-allan/assets/og-cartao.png">
+<meta property="og:url" content="https://drallan2026.github.io/cartao-allan/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#041817; --bg2:#020d0d; --bg3:#03261f;
+  --ink:#eff9f6; --muted:#a7bbb6; --teal:#19d3c5; --teal2:#70f0c5;
+  --line:rgba(25,211,197,.28); --card:rgba(255,255,255,.035);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#010b0a;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{display:flex;justify-content:center;min-height:100dvh}
+.card{position:relative;width:100%;max-width:440px;min-height:100dvh;overflow:hidden;
+  background:radial-gradient(120% 60% at 50% 8%, #0a3b38 0%, var(--bg1) 42%, var(--bg2) 100%);
+  padding:14px 20px 0;display:flex;flex-direction:column;isolation:isolate}
+@media(min-width:480px){.card{min-height:auto;margin:24px 0;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.65);border:1px solid var(--line)}}
+
+.dots{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(25,211,197,.55) 1px, transparent 1.4px),
+                   radial-gradient(rgba(25,211,197,.35) 1px, transparent 1.4px);
+  background-size:22px 22px, 22px 22px;
+  background-position:0 0, 11px 11px;
+  -webkit-mask-image:linear-gradient(120deg,#000 0%,transparent 38%,transparent 62%,#000 100%);
+          mask-image:linear-gradient(120deg,#000 0%,transparent 38%,transparent 62%,#000 100%)}
+.waves{position:absolute;inset:0;z-index:0;pointer-events:none}
+.waves.top{height:240px}
+.waves.bottom{bottom:0;top:auto;height:300px}
+
+.social{position:relative;z-index:3;display:flex;justify-content:center;gap:26px;padding:6px 0 2px}
+.soc{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);transition:.2s;background:transparent}
+.soc svg{width:20px;height:20px;fill:currentColor}
+.soc:hover,.soc:focus-visible{color:#02110f;background:var(--teal);border-color:var(--teal);outline:none}
+.soc.destaque{background:var(--teal);border-color:var(--teal);color:#02110f}
+
+.hero{position:relative;z-index:2;height:440px;margin-top:4px}
+.ring{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:min(82%,312px);aspect-ratio:1;border-radius:50%;
+  border:1.5px solid rgba(25,211,197,.55);
+  box-shadow:0 0 70px rgba(25,211,197,.16) inset, 0 0 44px rgba(25,211,197,.14), 0 0 0 1px rgba(0,0,0,.25);
+  background:radial-gradient(60% 55% at 50% 45%, rgba(4,30,28,.72), rgba(2,13,13,.35))}
+.ring::after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(25,211,197,.12)}
+
+.brand{position:absolute;left:24px;top:88px;z-index:4;max-width:152px}
+.brand .cmais{width:70px;height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(25,211,197,.45))}
+.brand h1{font-size:35px;line-height:.94;font-weight:900;letter-spacing:-1px;margin-top:6px}
+.brand h1 .cap{color:var(--teal);display:block}
+.brand p{margin-top:8px;font-size:11.5px;line-height:1.32;color:var(--teal2);max-width:146px}
+.brand p::before{content:"";display:inline-block;width:22px;height:2px;background:var(--teal);vertical-align:middle;margin-right:8px}
+
+.retrato{position:absolute;right:-12px;bottom:0;width:min(58%,230px);height:auto;z-index:3;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.55))}
+.nome{position:absolute;right:14px;bottom:30px;z-index:5;text-align:center}
+.nome .n{font-size:26px;font-weight:800;letter-spacing:-.6px;color:var(--teal);text-shadow:0 3px 16px rgba(0,0,0,.85)}
+.nome .c{font-size:17px;font-weight:800;letter-spacing:2px;color:#fff;margin-top:2px;text-shadow:0 3px 16px rgba(0,0,0,.85)}
+
+.tabs{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.tab{background:none;border:0;color:var(--muted);font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.10em;
+  text-transform:uppercase;cursor:pointer;padding:10px 2px 12px;display:flex;flex-direction:column;align-items:center;gap:9px;transition:.2s;border-bottom:2px solid transparent}
+.tab .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2);transition:.2s}
+.tab .ic svg{width:20px;height:20px;fill:currentColor}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--teal2);border-bottom-color:var(--teal)}
+.tab[aria-selected="true"] .ic{background:var(--teal);border-color:var(--teal);color:#02110f;box-shadow:0 0 22px rgba(25,211,197,.45)}
+
+.painel{position:relative;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:12px}
+.painel[hidden]{display:none}
+.painel h2{font-size:15px;font-weight:800;letter-spacing:.3px;margin-bottom:8px}
+.painel p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+.painel a{color:var(--teal2);text-decoration:none;font-weight:700;border-bottom:1px solid rgba(112,240,197,.4)}
+.lista{list-style:none;margin-top:4px}
+.lista li{font-size:13.5px;line-height:1.5;color:var(--muted);padding-left:18px;position:relative;margin-bottom:7px}
+.lista li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+
+.contatos{position:relative;z-index:3;margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.linha{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);text-decoration:none;transition:.2s}
+.linha:hover,.linha:focus-visible{border-color:var(--teal);background:rgba(25,211,197,.10);outline:none}
+.linha .ic{width:46px;height:46px;flex:0 0 46px;border-radius:50%;display:grid;place-items:center;border:1.6px solid var(--line);color:var(--teal2)}
+.linha .ic svg{width:22px;height:22px;fill:currentColor}
+.linha .tx{display:flex;flex-direction:column;min-width:0}
+.linha .tx small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.linha .tx b{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.destaque{position:relative;z-index:3;margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(25,211,197,.10),rgba(2,13,13,.5))}
+.destaque .cab{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px}
+.destaque .cab span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal2);font-weight:700}
+.destaque .corpo{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:4px 16px 16px}
+.destaque h3{font-size:22px;line-height:1.06;font-weight:900;letter-spacing:-.4px;text-transform:uppercase}
+.destaque h3 em{color:var(--teal);font-style:normal}
+.destaque p{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.qrtile{background:#fff;border-radius:12px;padding:8px;display:grid;place-items:center}
+.qrtile img{width:118px;height:118px;display:block}
+.qrtile span{display:block;font-size:9px;letter-spacing:.1em;font-weight:800;color:#052420;text-transform:uppercase;margin-top:5px;text-align:center}
+
+.rodape{position:relative;z-index:3;margin-top:auto;padding:18px 0 14px;text-align:center;border-top:1px solid var(--line);margin-top:18px}
+.rodape .marca{font-size:15px;font-weight:800;letter-spacing:.4px}
+.rodape .marca em{color:var(--teal);font-style:normal}
+.rodape p{font-size:11.5px;color:var(--muted);margin-top:5px}
+.rodape a{color:var(--teal2);text-decoration:none;font-weight:600}
+.selo{margin-top:10px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);opacity:.85}
+
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--teal);color:#02110f;
+  font-size:12.5px;font-weight:700;padding:10px 18px;border-radius:30px;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main class="card">
+
+  <div class="dots" aria-hidden="true"></div>
+
+  <svg class="waves top" viewBox="0 0 440 240" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#19d3c5" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#70f0c5" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#19d3c5" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="blur"><feGaussianBlur stdDeviation="3"/></filter>
+    </defs>
+    <g fill="none" stroke="url(#g1)" stroke-width="1.1" filter="url(#blur)">
+      <path d="M-20 150 C 90 60, 190 210, 470 70"/>
+      <path d="M-20 128 C 90 38, 190 188, 470 48" opacity=".7"/>
+      <path d="M-20 172 C 90 82, 190 232, 470 92" opacity=".55"/>
+      <path d="M-20 106 C 100 20, 200 168, 470 28" opacity=".35"/>
+    </g>
+  </svg>
+  <svg class="waves bottom" viewBox="0 0 440 300" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="url(#g1)" stroke-width="1.1" filter="url(#blur)">
+      <path d="M-20 250 C 110 330, 210 150, 470 210" opacity=".8"/>
+      <path d="M-20 272 C 110 352, 210 172, 470 232" opacity=".55"/>
+      <path d="M-20 228 C 120 306, 220 128, 470 188" opacity=".4"/>
+    </g>
+  </svg>
+
+  <nav class="social" aria-label="Redes sociais">
+    <a class="soc" href="https://www.instagram.com/drallancaptador/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.4.68.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.42-.8.68-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.4-.42.8-.68 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 2.2a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM18.4 6a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+    </a>
+    <a class="soc destaque" href="https://www.facebook.com/ITMARIALVAPR" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+    </a>
+    <a class="soc" href="https://x.com/comassarandipr" target="_blank" rel="noopener" aria-label="X">
+      <svg viewBox="0 0 24 24"><path d="M17.53 3h3.02l-6.6 7.54L21.75 21h-6.06l-4.75-6.2L5.5 21H2.48l7.06-8.06L2.25 3h6.21l4.29 5.67L17.53 3zm-1.06 16.2h1.67L7.6 4.71H5.81L16.47 19.2z"/></svg>
+    </a>
+  </nav>
+
+  <section class="hero">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="brand">
+      <svg class="cmais" viewBox="0 0 128 110" role="img" aria-label="Método Capta+">
+        <defs>
+          <linearGradient id="cg" gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="122" y2="102">
+            <stop offset="0" stop-color="#6ff5f1"/>
+            <stop offset=".5" stop-color="#19d3c5"/>
+            <stop offset="1" stop-color="#0a9f97"/>
+          </linearGradient>
+        </defs>
+        <path d="M67.6 24.8 A36 36 0 1 0 67.6 85.2" fill="none" stroke="url(#cg)" stroke-width="22"/>
+        <g fill="none" stroke="url(#cg)" stroke-width="15" stroke-linecap="round">
+          <path d="M106 42 V68"/>
+          <path d="M93 55 H119"/>
+        </g>
+      </svg>
+      <h1>Método <span class="cap">Capta+</span></h1>
+      <p>Gestão Inteligente para Captação Pública</p>
+    </div>
+    <picture>
+      <source srcset="assets/retrato.webp" type="image/webp">
+      <img class="retrato" src="assets/retrato.png" alt="Allan Márcio, CEO" width="286" height="333">
+    </picture>
+    <div class="nome">
+      <div class="n">Allan Márcio</div>
+      <div class="c">CEO</div>
+    </div>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Seções do cartão">
+    <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.6-8 5.8V22h16v-2.2c0-3.2-3.6-5.8-8-5.8z"/></svg></span>
+      Quem sou eu?
+    </button>
+    <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8C22 15.2 22 12 22 12s0-3.2-.4-4.8zM10 15.2V8.8L15.5 12 10 15.2z"/></svg></span>
+      Canal
+    </button>
+    <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 9.6 8.2 3 9.2l4.8 4.4L6.4 20 12 16.7 17.6 20l-1.4-6.4L21 9.2l-6.6-1L12 2z"/></svg></span>
+      Mentorias
+    </button>
+  </div>
+
+  <section class="painel" role="tabpanel" id="p1" aria-labelledby="t1">
+    <h2>Quem sou eu</h2>
+    <p>Engenheiro de captação de recursos públicos e privados. Conduzo organizações da sociedade civil da autorização ao recurso assinado — com método, governança e prestação de contas auditável.</p>
+    <p style="margin-top:10px"><a href="https://fomentia.com.br/metodo-capta-plus/" target="_blank" rel="noopener">Conheça o Método Capta+ →</a></p>
+  </section>
+
+  <section class="painel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+    <h2>Estação Captação</h2>
+    <p>O canal onde a captação pública deixa de ser sorte e vira engenharia.</p>
+    <ul class="lista">
+      <li>Aulas e análises sobre editais, emendas e leis de incentivo</li>
+      <li>Bastidores de captação real, sem teoria solta</li>
+      <li>Erros que travam projetos — e como destravá-los</li>
+    </ul>
+    <p style="margin-top:6px"><a href="https://www.youtube.com/@DrAllanProjeto" target="_blank" rel="noopener">Inscreva-se no canal →</a></p>
+  </section>
+
+  <section class="painel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+    <h2>Minuto Capta+</h2>
+    <p>Mentorias e conteúdo direto para gestores e captadores que querem transformar intenção em recurso.</p>
+    <p style="margin-top:10px"><a href="https://minutocaptamais.substack.com" target="_blank" rel="noopener">Assinar a newsletter →</a></p>
+  </section>
+
+  <section class="contatos" aria-label="Contato">
+    <a class="linha" href="https://wa.me/5544999120638?text=WhatsApp%2024%20Horas!!" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M20 3.9A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7c1.7.9 3.7 1.4 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.2-6.2-3.4-8.4l-1.6 1.5zm-7.9 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2c0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 6.9 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.5 9.9-9.9 9.9zm5.4-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.1c-.2.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.8 1.2 3c.2.2 2 3.1 5 4.3 1.8.8 2.5.9 3.4.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg></span>
+      <span class="tx"><small>WhatsApp 24 horas</small><b>(44) 99912-0638</b></span>
+    </a>
+    <a class="linha" href="mailto:drallanvieira@gmail.com">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3-.2 7.7 5.6 7.7-5.6H4.3zM20 7.3l-7.4 5.4a1 1 0 0 1-1.2 0L4 7.3v11.2h16V7.3z"/></svg></span>
+      <span class="tx"><small>E-mail</small><b>drallanvieira@gmail.com</b></span>
+    </a>
+  </section>
+
+  <section class="destaque" aria-label="Destaque">
+    <div class="cab"><span>Destaque</span><span>ExpoSul 2026</span></div>
+    <div class="corpo">
+      <div>
+        <h3>Quem recicla o <em>Brasil</em> precisa aprender a captar!!</h3>
+        <p>Apresentação do Método Capta+ para a rede de catadores — aponte a câmera e assista.</p>
+      </div>
+      <a class="qrtile" href="https://canva.link/apresentacao-exposul-2026-catador" target="_blank" rel="noopener" aria-label="Abrir a apresentação ExpoSul 2026 Catadores">
+        <img src="assets/qr-exposul.png" alt="QR Code — ExpoSul 2026 Catadores" width="118" height="118">
+        <span>Aponte a câmera</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div class="marca">Método <em>Capta+</em></div>
+    <p>Captação de Recursos &amp; Gestão de Projetos Sociais</p>
+    <div class="selo">Soberania Fiduciária · Dados Auditáveis</div>
+  </footer>
+
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var paineis={t1:'p1',t2:'p2',t3:'p3'};
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(o){
+        var sel=o===t;
+        o.setAttribute('aria-selected',sel?'true':'false');
+        document.getElementById(paineis[o.id]).hidden=!sel;
+      });
+    });
+  });
+  var toast=document.getElementById('toast');
+  function aviso(msg){toast.textContent=msg;toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},2200);}
+  var tel=document.querySelector('a[href^="mailto:"]');
+  if(tel){tel.addEventListener('click',function(){aviso('Abrindo seu e-mail…');});}
+})();
+</script>
+</body>
+</html>
