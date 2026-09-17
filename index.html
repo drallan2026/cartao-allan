@@ -95,16 +95,19 @@ body{display:flex;justify-content:center;min-height:100dvh}
 .linha .tx small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .linha .tx b{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-.destaque{position:relative;z-index:3;margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(25,211,197,.10),rgba(2,13,13,.5))}
+.destaque{display:block;position:relative;z-index:3;margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(25,211,197,.10),rgba(2,13,13,.5));text-decoration:none;color:inherit;transition:.2s}
+.destaque:hover,.destaque:focus-visible{border-color:var(--teal);background:linear-gradient(180deg,rgba(25,211,197,.20),rgba(2,13,13,.55));outline:none}
 .destaque .cab{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px}
 .destaque .cab span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal2);font-weight:700}
-.destaque .corpo{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:4px 16px 16px}
-.destaque h3{font-size:22px;line-height:1.06;font-weight:900;letter-spacing:-.4px;text-transform:uppercase}
+.destaque .corpo{padding:2px 16px 18px}
+.destaque h3{font-size:23px;line-height:1.05;font-weight:900;letter-spacing:-.4px;text-transform:uppercase}
 .destaque h3 em{color:var(--teal);font-style:normal}
-.destaque p{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
-.qrtile{background:#fff;border-radius:12px;padding:8px;display:grid;place-items:center}
-.qrtile img{width:118px;height:118px;display:block}
-.qrtile span{display:block;font-size:9px;letter-spacing:.1em;font-weight:800;color:#052420;text-transform:uppercase;margin-top:5px;text-align:center}
+.destaque p{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.5}
+.btn-destaque{display:inline-flex;align-items:center;gap:10px;margin-top:15px;background:var(--teal);color:#02110f;
+  font-weight:800;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;padding:14px 22px;border-radius:32px;
+  box-shadow:0 10px 26px rgba(25,211,197,.32)}
+.btn-destaque svg{width:15px;height:15px;fill:currentColor}
 
 .rodape{position:relative;z-index:3;margin-top:auto;padding:18px 0 14px;text-align:center;border-top:1px solid var(--line);margin-top:18px}
 .rodape .marca{font-size:15px;font-weight:800;letter-spacing:.4px}
@@ -239,19 +242,17 @@ body{display:flex;justify-content:center;min-height:100dvh}
     </a>
   </section>
 
-  <section class="destaque" aria-label="Destaque">
+  <a class="destaque" href="https://canva.link/apresentacao-exposul-2026-catador" target="_blank" rel="noopener" aria-label="Abrir a apresentação ExpoSul 2026 Catadores">
     <div class="cab"><span>Destaque</span><span>ExpoSul 2026</span></div>
     <div class="corpo">
-      <div>
-        <h3>Quem recicla o <em>Brasil</em> precisa aprender a captar!!</h3>
-        <p>Apresentação do Método Capta+ para a rede de catadores — aponte a câmera e assista.</p>
-      </div>
-      <a class="qrtile" href="https://canva.link/apresentacao-exposul-2026-catador" target="_blank" rel="noopener" aria-label="Abrir a apresentação ExpoSul 2026 Catadores">
-        <img src="assets/qr-exposul.png" alt="QR Code — ExpoSul 2026 Catadores" width="118" height="118">
-        <span>Aponte a câmera</span>
-      </a>
+      <h3>Quem recicla o <em>Brasil</em> precisa aprender a captar!!</h3>
+      <p>Apresentação do Método Capta+ para a rede de catadores — clique e assista.</p>
+      <span class="btn-destaque">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12 8 5.2z"/></svg>
+        Clique na apresentação
+      </span>
     </div>
-  </section>
+  </a>
 
   <footer class="rodape">
     <div class="marca">Método <em>Capta+</em></div>
